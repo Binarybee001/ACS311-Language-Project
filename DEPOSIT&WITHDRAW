@@ -1,0 +1,69 @@
+def deposit(balance):
+    try:
+        amount = float(input("Enter amount to deposit: $"))
+        if amount > 0:
+            balance += amount
+            print(f"Successfully deposited ${amount:.2f}. New balance: ${balance:.2f}")
+        else:
+            print("Invalid amount. Please enter a positive number.")
+    except ValueError:
+        print("Invalid input. Please enter a numerical value.")
+    
+    return balance
+
+def withdraw(balance):
+    try:
+        amount = float(input("Enter amount to withdraw: $"))
+        if 0 < amount <= balance:
+            balance -= amount
+            print(f"Successfully withdrew ${amount:.2f}. New balance: ${balance:.2f}")
+        elif amount > balance:
+            print(f"Insufficient funds! Your current balance is ${balance:.2f}")
+        else:
+            print("Invalid amount. Please enter a positive number.")
+    except ValueError:
+        print("Invalid input. Please enter a numerical value.")
+        
+    return balance
+
+def check_balance(balance):
+    # PLACEHOLDER 1: Ready for another team member to build out
+    print(f"\n[Placeholder] Current balance is: ${balance:.2f}")
+    print("[Placeholder] Additional statement features can go here.")
+
+def account_settings():
+    # PLACEHOLDER 2: Ready for another team member to build out
+    print("\n[Placeholder] Account settings menu coming soon.")
+    pass 
+
+def main():
+    # Starting balance for the session
+    current_balance = 0.0  
+
+    while True:
+        print("\n--- Welcome to the GRITT Bank ---")
+        print("1. Deposit")
+        print("2. Withdraw")
+        print("3. Check Balance")
+        print("4. Account Settings")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == '1':
+            current_balance = deposit(current_balance)
+        elif choice == '2':
+            current_balance = withdraw(current_balance)
+        elif choice == '3':
+            check_balance(current_balance)
+        elif choice == '4':
+            account_settings()
+        elif choice == '5':
+            print("Thank you for banking with us. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please select a number between 1 and 5.")
+
+# Runs the program
+if __name__ == "__main__":
+    main()
