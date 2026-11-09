@@ -1,3 +1,5 @@
+"""JoseMaria's code"""
+
 def deposit(balance):
     try:
         amount = float(input("Enter amount to deposit: $"))
